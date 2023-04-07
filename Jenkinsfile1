@@ -52,7 +52,7 @@ stages{
   }
   */
 }//Stages Closing
-
+/*
 post{
 
  success{
@@ -70,6 +70,6 @@ post{
  }
  
 }
-
+*/
 
 }//Pipeline closing
