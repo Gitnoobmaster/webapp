@@ -25,7 +25,7 @@ maven 'maven_3.9.1'
                 sh "mvn sonar:sonar" }
             }
         stage('Move artiface to nexus repo') {
-             stesp {
+             steps {
                 echo 'Moving build artifact'
                 sh "mvn deploy" } 
         }
