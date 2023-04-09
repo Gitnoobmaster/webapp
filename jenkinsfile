@@ -19,5 +19,12 @@ maven 'maven_3.9.1'
                 echo 'Building code now'
                 sh  "mvn clean package" } 
                 }
+        stage('Test - Sonar') {
+            steps {
+                echo 'Testing phase'
+                sh "mvn sonar:sonar" }
+            }
+        }
     }
 }
+    
