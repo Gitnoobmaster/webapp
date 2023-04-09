@@ -24,6 +24,18 @@ maven 'maven_3.9.1'
                 echo 'Testing phase'
                 sh "mvn sonar:sonar" }
             }
-    }
+        stage('Move artiface to nexus repo') {
+             stesp {
+                echo 'Moving build artifact'
+                sh "mvn deploy" } 
+        }
+        stage('Deploying to Tomcat Server') {
+            steps {
+                echo 'Coying the artifact to Tomcat webapps folder'
+                sshagent(['24463778-9aa4-4cfd-b3f2-1f7a25293148']) 
+                sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@18.233.164.125:/opt/apache-tomcat-10.1.7/webapps/"
+                            }
+            }
+        }
 
 }
