@@ -24,7 +24,6 @@ maven 'maven_3.9.1'
                 echo 'Testing phase'
                 sh "mvn sonar:sonar" }
             }
-        }
     }
+
 }
-    
